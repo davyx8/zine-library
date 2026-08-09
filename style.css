@@ -1,0 +1,326 @@
+:root {
+  --navy: #0b2545;
+  --blue: #1d5fd6;
+  --blue-bright: #2f7bff;
+  --blue-pale: #eaf2ff;
+  --blue-line: #cddffb;
+  --blue-dark: #06152e;
+  --blue-mid: #4a86ff;
+  --paper: #fbfdff;
+  --white: #ffffff;
+  --border-width: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navy: #eaf2ff;
+    --blue: #6fa6ff;
+    --blue-bright: #8fb9ff;
+    --blue-pale: #10203f;
+    --blue-line: #234480;
+    --blue-dark: #8fb9ff;
+    --blue-mid: #2b52a0;
+    --paper: #0a1730;
+    --white: #0e1e3d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--navy);
+  font-family: "Nunito", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+header.site {
+  background: var(--navy);
+  color: var(--blue-pale);
+  padding: 56px 20px 40px;
+  text-align: center;
+  border-bottom: 6px solid var(--blue-bright);
+}
+
+header.site h1 {
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 3rem;
+  margin: 0 0 10px;
+  letter-spacing: 0.5px;
+}
+
+header.site p {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+header.site .stamp {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 6px 14px;
+  border: 2px dashed var(--blue-bright);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav.crumbs {
+  padding: 18px 0 0;
+  font-size: 0.95rem;
+}
+
+.intro {
+  padding: 36px 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.count-pill {
+  display: inline-block;
+  background: var(--blue-pale);
+  border: 1px solid var(--blue-line);
+  color: var(--blue);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.zine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 260px));
+  justify-content: center;
+  column-gap: 2.5rem;
+  row-gap: 4.5rem;
+  padding: 10px 0 20px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.zine {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: var(--border-width) solid var(--navy);
+  background: var(--white);
+  z-index: 1;
+  transform: skewY(3deg);
+  transform-origin: bottom left;
+  transition: transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.zine::before,
+.zine::after {
+  content: " ";
+  position: absolute;
+  border: var(--border-width) solid var(--navy);
+  top: calc(var(--border-width) + 1px);
+  bottom: calc(var(--border-width) + 1px);
+  left: calc(-1 * var(--border-width));
+  right: calc(var(--border-width) + 1px);
+  background: var(--blue-pale);
+  z-index: -1;
+  transform: skewY(-7deg) translateY(-5px);
+  transform-origin: bottom left;
+  transition: transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.zine::after {
+  background: var(--blue-mid);
+  transform: skewY(-7deg) translateY(7px);
+}
+
+.li a { display: block; }
+
+.zine img {
+  width: 100%;
+  display: block;
+}
+
+.zine:hover {
+  transform: skewY(1deg) translateY(-12px);
+  z-index: 99;
+}
+
+.zine:hover::before {
+  transform: skewY(-3deg) translateY(-9px);
+}
+
+.zine:hover::after {
+  transform: skewY(-3deg) translateY(11px);
+}
+
+.zine-title-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -1.1em;
+}
+
+h3.zine-title {
+  position: relative;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  display: inline-block;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  z-index: 100;
+  box-shadow: 3px 3px 0 var(--blue-line);
+}
+
+.li .kicker {
+  margin-top: 1.3em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.li p.blurb {
+  margin: 6px 0 10px;
+  line-height: 1.5;
+  color: var(--navy);
+  opacity: 0.85;
+  font-size: 0.92rem;
+  max-width: 240px;
+}
+
+.read-button {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border: 2px solid var(--navy);
+  border-radius: 0.5rem;
+  color: var(--navy);
+  background: var(--blue-pale);
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--blue-line), 5px 5px 0 var(--navy);
+  transition: all 100ms ease;
+  text-decoration: none;
+}
+
+.read-button:hover {
+  background: var(--blue-bright);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.read-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--blue-line), 0 0 0 var(--navy);
+}
+
+footer.site {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--blue);
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+/* zine detail page */
+
+.zine-page header.site {
+  padding: 40px 20px 28px;
+}
+
+.zine-detail {
+  padding-top: 30px;
+}
+
+.zine-detail .kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.zine-detail h1 {
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 2.4rem;
+  margin: 0 0 14px;
+}
+
+.zine-detail p.blurb {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 0 28px;
+}
+
+.zine-detail .pages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.zine-detail .pages img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--blue-line);
+  display: block;
+}
+
+.zine-detail .pages figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--blue);
+  margin-top: 8px;
+}
+
+.zine-detail .pages figure {
+  margin: 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-buttons a {
+  border: 1px solid var(--blue-line);
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: var(--blue-pale);
+}
+
+.nav-buttons a:hover {
+  border-color: var(--blue-bright);
+  text-decoration: none;
+}
