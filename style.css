@@ -268,8 +268,21 @@ footer.site {
   text-align: center;
   padding: 40px 20px;
   color: var(--blue);
-  opacity: 0.75;
   font-size: 0.9rem;
+}
+
+footer.site p {
+  margin: 0 0 6px;
+  opacity: 0.75;
+}
+
+footer.site p.credit {
+  font-size: 0.82rem;
+}
+
+footer.site a {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /* zine detail page */
