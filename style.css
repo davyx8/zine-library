@@ -354,3 +354,218 @@ footer.site {
   border-color: var(--blue-bright);
   text-decoration: none;
 }
+
+/* vector (whiteboard-style) zines: hand-built panels instead of scanned pages */
+
+.vector-zine .zine-detail .pages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .vector-zine .zine-detail .pages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .vector-zine .zine-detail .pages {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wz-panel {
+  position: relative;
+  border: 2.5px solid var(--navy);
+  border-radius: 6px;
+  background: var(--white);
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  grid-column: span 1;
+}
+
+.wz-panel.wz-span2 { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .wz-panel.wz-span2 { grid-column: span 2; }
+}
+
+@media (max-width: 560px) {
+  .wz-panel.wz-span2 { grid-column: span 1; }
+}
+
+.wz-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  border: 2px solid var(--navy);
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex: 0 0 auto;
+}
+
+.wz-panel h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 2px;
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  border-bottom: 2px solid var(--blue-line);
+  padding-bottom: 6px;
+}
+
+.wz-panel p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.wz-panel ul {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.wz-panel ul li::marker {
+  color: var(--blue);
+}
+
+.wz-panel ul li b, .wz-panel p b, .wz-code + p b {
+  color: var(--blue);
+}
+
+.wz-code {
+  background: var(--blue-dark);
+  color: #cfe6ff;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-family: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.wz-code .cmt { color: #7fa8de; }
+.wz-code .hl { color: #ffe89b; }
+
+.wz-callout {
+  background: var(--blue-pale);
+  border: 1.5px dashed var(--blue-mid);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.wz-callout.warn {
+  border-style: solid;
+  border-color: var(--navy);
+  background: #fff;
+}
+
+.wz-fig {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.wz-fig.wz-fig-end {
+  justify-content: flex-end;
+}
+
+.wz-speech {
+  position: relative;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  max-width: 130px;
+}
+
+.wz-doodle {
+  flex: 0 0 auto;
+  color: var(--navy);
+}
+
+.wz-star {
+  position: absolute;
+  color: var(--blue-mid);
+  font-size: 1.1rem;
+}
+
+/* cover panel */
+
+.wz-cover {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: var(--blue-pale);
+}
+
+.wz-cover .wz-icon {
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.wz-cover h3 {
+  margin: 0;
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 2.1rem;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.wz-cover .wz-tagline {
+  font-size: 0.92rem;
+  color: var(--navy);
+  opacity: 0.85;
+  margin: 2px 0 6px;
+}
+
+.wz-cover .wz-banner {
+  display: inline-block;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* try-it bar */
+
+.wz-tryit {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 2.5px solid var(--navy);
+  border-radius: 6px;
+  background: var(--blue-pale);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.wz-tryit b {
+  font-family: "Patrick Hand", "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.1rem;
+  color: var(--navy);
+}
